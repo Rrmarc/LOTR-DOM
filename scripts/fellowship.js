@@ -91,17 +91,19 @@ keepItSecretKeepItSafe();
 function makeBuddies() {
   // create an aside tag
   let asideTag = document.createElement("aside");
+
   // attach an unordered list of each 'buddy' in the aside
   let ul = document.createElement("ul");
   asideTag.appendChild(ul);
   for (let i = 0; i < buddies.length; i++) {
     let li = document.createElement("li");
+    li.className = "aside-list";
     li.innerHTML = buddies[i];
     ul.appendChild(li);
   }
   // insert your aside as a child element of rivendell
   let rivendellLand = document.getElementById("lands1");
-  console.log(rivendellLand);
+  // console.log(rivendellLand);
   rivendellLand.appendChild(asideTag);
 }
 makeBuddies();
@@ -109,8 +111,10 @@ makeBuddies();
 // Part 5
 function beautifulStranger() {
   // change the 'Strider' textnode to 'Aragorn'
+  let pointer = document.getElementsByClassName("aside-list");
+  pointer[3].innerHTML = "Aragorn";
 }
-// beautifulStranger();
+beautifulStranger();
 
 // Part 6
 function leaveTheShire() {
