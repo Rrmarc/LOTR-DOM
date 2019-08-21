@@ -35,6 +35,9 @@ function makeMiddleEarth() {
     var $article = document.createElement("article");
     // inside each article tag include an h1 with the name of the land
     var $h1 = document.createElement("h1");
+    //added idividual ids on land
+    $h1.setAttribute("id", `lands${i}`);
+
     $h1.textContent = lands[i];
     var nameinArray = lands[i].toLowerCase().split(" ");
     var nameNoSpace = nameinArray.join("-");
@@ -89,9 +92,19 @@ function makeBuddies() {
   // create an aside tag
   let asideTag = document.createElement("aside");
   // attach an unordered list of each 'buddy' in the aside
+  let ul = document.createElement("ul");
+  asideTag.appendChild(ul);
+  for (let i = 0; i < buddies.length; i++) {
+    let li = document.createElement("li");
+    li.innerHTML = buddies[i];
+    ul.appendChild(li);
+  }
   // insert your aside as a child element of rivendell
+  let rivendellLand = document.getElementById("lands1");
+  console.log(rivendellLand);
+  rivendellLand.appendChild(asideTag);
 }
-// makeBuddies();
+makeBuddies();
 
 // Part 5
 function beautifulStranger() {
